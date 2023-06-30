@@ -1,31 +1,30 @@
-const ErrorHander = require("../utils/errorhander");
+const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsuncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
-
+const User = require("../models/userModel");
 
 exports.isAuthenticatedUser = catchAsuncErrors(async (req, res, next) => {
-    const {token} = req.cookies;
+    const { token } = req.cookies;
+
     if(!token){
-        return next(new ErrorHander("Login first to access this resource.",401));
+        return next(new ErrorHandler("Login first to access this resource.",401));
     }
 
-    const decodedDate = jwt.verify(token,process.env.JWT_SECRET);
-    req.user = await User.findById(decodedDate.id);
+    const decodedData = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = await User.findById(decodedData.id);
     next();
 });
 
 
 exports.authorizeRoles = (...roles) => {
     return (req,res,next) => {
-        if(!roles.includes(req.user.role)){
+        if (!roles.includes(req.user.role)) {
             return next( 
-                new ErrorHander(
-                    `Role: ${req.user.role} is not allowed to access this resource.`,
-                    403
+                new ErrorHandler(
+                    `Role: ${req.user.role} is not allowed to access this resource.`, 403
                 )
             );
-        }
-        
+        } 
         next();
     }
 }
