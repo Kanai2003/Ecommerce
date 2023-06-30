@@ -25,11 +25,11 @@ class ApiFeatures{
         // removing fields for category
         const removeFields = ["keyword", "limit", "page"];
 
-        removeFields.forEach(el => delete queryCopy[el]);
+        removeFields.forEach((el) => delete queryCopy[el]);
 
         // filter for price and ratings
         let queryStr = JSON.stringify(queryCopy);
-        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`); //this is a $regex
+        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g,( match) => `$${match}`); //this is a $regex
 
         this.query = this.query.find(JSON.parse(queryStr));
         return this;
