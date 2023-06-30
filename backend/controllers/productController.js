@@ -1,5 +1,5 @@
 const Product = require("../models/productModel");
-const ErrorHander = require("../utils/errorhander");
+const ErrorHandler = require("../utils/ErrorHandler");
 // "catchAsyncErrors" is for error handlling for "async"
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apifeatures");
@@ -48,13 +48,12 @@ exports.getProductDetails = catchAsyncErrors(
     async (req,res,next) => {
         const product = await Product.findById(req.params.id);
         if(!product){
-            return next(new ErrorHander("Product not found",404));
+            return next(new ErrorHandler("Product not found",404));
         }
           
         res.status(200).json({
             success: true,
             product, 
-            productCount
         })
     }
 )
@@ -65,7 +64,7 @@ exports.updateProduct = catchAsyncErrors(
     async (req,res,next) => {
         let product = await Product.findById(req.params.id);
         if(!product){
-            return next(new ErrorHander("Product not found",404));
+            return next(new ErrorHandler("Product not found",404));
         }
     
         product = await Product.findByIdAndUpdate(req.params.id, req.body,{
@@ -86,7 +85,7 @@ exports.deleteProduct = catchAsyncErrors(
     async (req,res,next) => {
         const product = await Product.findById(req.params.id);
         if(!product){
-            return next(new ErrorHander("Product not found",404));
+            return next(new ErrorHandler("Product not found",404));
         }
         await product.deleteOne();
         res.status(200).json({
