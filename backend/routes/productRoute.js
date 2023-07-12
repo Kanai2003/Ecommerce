@@ -9,21 +9,24 @@ router.route("/products")
     .get(getAllProducts);
 
 // create
-router.route("/admin/products/new")  //edit on postman
-    .post(isAuthenticatedUser,authorizeRoles("admin"), createProduct);
+router.route("/admin/products/new")   
+    .post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
 
 //update & delete 
-router.route("/admin/products/:id")       //edit on postman
-    .put(isAuthenticatedUser,authorizeRoles("admin"), updateProduct)
-    .delete(isAuthenticatedUser,authorizeRoles("admin"), deleteProduct);
+router.route("/admin/products/:id")      
+    .put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct)
+    .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct);
     
 // get product details 
 router.route("/products/:id")
     .get(getProductDetails);
 
-router.route("/review").put(isAuthenticatedUser, createProductReview);  //not checked
+router.route("/review")
+    .put(isAuthenticatedUser, createProductReview); 
 
-router.route("/review").get(getProductReviews).delete(isAuthenticatedUser, deleteProductReview);   //not checked
+router.route("/review")
+    .get(getProductReviews)
+    .delete(isAuthenticatedUser, deleteProductReview);   
 
 
 module.exports = router 

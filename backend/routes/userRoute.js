@@ -10,9 +10,9 @@ router.route("/register").post(registerUser);
 
 router.route("/login").post(loginUser); 
 
-router.route("/password/forgot").post(forgotPassword) //bug🪲
+router.route("/password/forgot").post(forgotPassword) //bug🪲-- send email 
 
-router.route("/password/reset/:token").put(resetPassword);  //not checked
+router.route("/password/reset/:token").put(resetPassword);  
 
 router.route("/me").get(isAuthenticatedUser, getUserDetails);    
 
@@ -24,7 +24,7 @@ router.route("/me/update").put(isAuthenticatedUser, updateProfile);
 router.route("/logout").get(logout);
 
 router.route("/admin/users")
-    .get(isAuthenticatedUser, authorizeRoles("admin"), getAllUser);     //not checked
+    .get(isAuthenticatedUser, authorizeRoles("admin"), getAllUser);     
 
 router.route("/admin/user/:id")
     .get(isAuthenticatedUser, authorizeRoles("admin"), getSingleUser)
