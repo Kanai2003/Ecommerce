@@ -5,6 +5,8 @@ import Footer from './components/layout/Footer/Footer';
 import React from 'react';
 import WebFont from 'webfontloader';
 import { useEffect } from 'react';
+import Home from "./components/Home/Home.jsx";
+
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
     <Router>
       <Header/>     {/*need to add icons*/}
 
+      <Route exact path='/' Component={Home}/>
 
       <Footer/>
     </Router>

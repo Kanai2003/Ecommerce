@@ -27,9 +27,9 @@ const options = {
   link1Margin: "1vmax",
   profileIconUrl: "/login",
   profileIconColor: "rgba(35, 35, 35,0.8)",
-  // searchIcon: "true",
+  searchIcon: "true",
   searchIconColor: "rgba(35, 35, 35,0.8)",
-  // cartIcon: "true",
+  cartIcon: "true",
   cartIconColor: "rgba(35, 35, 35,0.8)",
 
   profileIconColorHover: "#eb4034",

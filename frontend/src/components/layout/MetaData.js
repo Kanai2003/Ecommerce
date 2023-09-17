@@ -5,7 +5,8 @@ import Helmet from "react-helmet";
 const MetaData = ({ title }) => {
     return (
         <Helmet>
-        <title>{`${title} - Ecommerce`}</title>
+        <title>{`${title}`}</title>
         </Helmet>
     );
 }
+export default MetaData;
