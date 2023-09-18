@@ -1,11 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { Provider } from 'react';
-import store from "./store";
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './App';
+// import { Provider } from 'react-redux'; // Use 'react-redux' for the Provider
+// import store from './store';
 
-import { positions, transitions, Provider as AlertProvider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
+// import { positions, transitions, Provider as AlertProvider } from 'react-alert';
+// import AlertTemplate from 'react-alert-template-basic';
+
+// const options = {
+//   timeout: 5000,
+//   position: positions.BOTTOM_CENTER,
+//   transition: transitions.SCALE,
+// };
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <AlertProvider template={AlertTemplate} {...options}>
+//       <App />
+//     </AlertProvider>
+//   </Provider>,
+//   document.getElementById('root')
+// );
+
+
+import React from 'react';
+// import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux'; // Use 'react-redux' for the Provider
+import store from './store';
+
+import { positions, transitions, Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
 
 const options = {
   timeout: 5000,
@@ -13,11 +39,11 @@ const options = {
   transition: transitions.SCALE,
 };
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <Provider store={store}>
     <AlertProvider template={AlertTemplate} {...options}>
       <App />
     </AlertProvider>
-  </Provider>,
-  document.getElementById("root")
+  </Provider>
 );

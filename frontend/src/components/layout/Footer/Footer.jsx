@@ -7,20 +7,20 @@ const Footer = () => {
     return (
         <footer id= "footer">
 
-            <div class= "leftFooter">
+            <div className= "leftFooter">
                 <h4>DOWNLOAD OUR APP</h4>
                 <p>Download App for Android and ios mobile phone</p>
                <img src={playStore} alt="playStore" />
                 <img src={appStore} alt="appStore" />
             </div>
 
-            <div class= "midFooter">
+            <div className= "midFooter">
                 <h1>ECOMMERCE</h1>
                 <p>Shop With Ease!</p>
                 <p> High quality is our first priority</p>
             </div>
 
-            <div class= "rightFooter">
+            <div className= "rightFooter">
                 <h4>Follow Us</h4>
                 <a href="https://github.com/kanailalmanna">GitHub</a>
             </div>

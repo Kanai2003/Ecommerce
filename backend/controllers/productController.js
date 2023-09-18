@@ -37,7 +37,8 @@ exports.getAllProducts = catchAsyncErrors(
         
         res.status(200).json({  //200 means everything is ok
             success:true,
-            products
+            products,
+            productCount
         })
     }
 )
