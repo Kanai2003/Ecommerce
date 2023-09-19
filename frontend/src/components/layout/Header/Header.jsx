@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
 import logo from '../../../images/appImages/logo.png';
+import { MdSearch, MdShoppingCart, MdAccountCircle } from "react-icons/md";
 // need to edit this file, I'll work on it later
 const options = {
   burgerColorHover: "#eb4034",
@@ -27,9 +28,7 @@ const options = {
   link1Margin: "1vmax",
   profileIconUrl: "/login",
   profileIconColor: "rgba(35, 35, 35,0.8)",
-  // searchIcon: "true",
   searchIconColor: "rgba(35, 35, 35,0.8)",
-  // cartIcon: "true",
   cartIconColor: "rgba(35, 35, 35,0.8)",
 
   profileIconColorHover: "#eb4034",
@@ -39,7 +38,7 @@ const options = {
 };
 
 const Header = () => {
-  return <ReactNavbar {...options} />;
+  return <ReactNavbar  searchIcon = {true} SearchIconElement = {MdSearch} profileIcon = {true} ProfileIconElement = {MdAccountCircle} cartIcon = {true} CartIconElement = {MdShoppingCart} {...options} />;
 };
 
 export default Header;
