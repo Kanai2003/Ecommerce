@@ -48,6 +48,6 @@ class ApiFeatures{
 }
 
 
-module.exports = ApiFeatures
+module.exports = ApiFeatures;
 
 
