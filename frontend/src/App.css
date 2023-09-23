@@ -3,6 +3,12 @@
     scroll-behavior: smooth;
 }
 
+
+body {
+    cursor: url("./images/appImages/cursor.png"), auto;
+}
+
+
 /* chromem, safari, edge, opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -16,10 +22,10 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-.greenColor{
+.greenColor {
     color: green;
 }
 
-.redColor{
+.redColor {
     color: red;
 }
