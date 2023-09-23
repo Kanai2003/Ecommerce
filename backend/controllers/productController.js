@@ -1,9 +1,8 @@
 const Product = require("../models/productModel");
 const ErrorHandler = require("../utils/ErrorHandler");
-// "catchAsyncErrors" is for error handlling for "async"
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-const ApiFeatures = require("../utils/apifeatures").default;
-
+const ApiFeatures = require("../utils/apifeatures").ApiFeatures;
+const cloudinary = require("cloudinary");
 
 
 // create product -- Admin
@@ -43,7 +42,7 @@ exports.createProduct = catchAsyncErrors(
 
 // get all products
 exports.getAllProducts = catchAsyncErrors(
-    async (req, res) => {
+    async (req, res, next) => {
 
         const resultPerPage = 8;
 
@@ -53,12 +52,12 @@ exports.getAllProducts = catchAsyncErrors(
             .search()
             .filter()
 
-
         let products = await apiFeatures.query;
 
         let filteredProductsCount = products.length;
 
         apiFeatures.pagination(resultPerPage);
+
         products = await apiFeatures.query;
 
         res.status(200).json({  //200 means everything is ok

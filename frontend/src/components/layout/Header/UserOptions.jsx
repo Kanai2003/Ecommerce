@@ -1,4 +1,3 @@
-
 import React, { Fragment, useState } from "react";
 import "./Header.css";
 import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
@@ -8,7 +7,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +16,7 @@ const UserOptions = ({ user }) => {
   const { cartItems } = useSelector((state) => state.cart);
 
   const [open, setOpen] = useState(false);
-  const history = useNavigate();
+  const history = useHistory();
   const alert = useAlert();
   const dispatch = useDispatch();
 

@@ -21,8 +21,10 @@ import {
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import { useParams } from "react-router-dom";
 
 const ProductDetails = ({ match }) => {
+  const params = useParams();
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -61,7 +63,7 @@ const ProductDetails = ({ match }) => {
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(match.params.id, quantity));
+    dispatch(addItemsToCart(params.id, quantity));
     alert.success("Item Added To Cart");
   };
 
@@ -74,7 +76,7 @@ const ProductDetails = ({ match }) => {
 
     myForm.set("rating", rating);
     myForm.set("comment", comment);
-    myForm.set("productId", match.params.id);
+    myForm.set("productId", params.id);
 
     dispatch(newReview(myForm));
 
@@ -96,8 +98,8 @@ const ProductDetails = ({ match }) => {
       alert.success("Review Submitted Successfully");
       dispatch({ type: NEW_REVIEW_RESET });
     }
-    dispatch(getProductDetails(match.params.id));
-  }, [dispatch, match.params.id, error, alert, reviewError, success]);
+    dispatch(getProductDetails(params.id));
+  }, [dispatch, params.id, error, alert, reviewError, success]);
 
   return (
     <Fragment>
